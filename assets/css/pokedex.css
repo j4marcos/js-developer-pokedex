@@ -109,24 +109,26 @@
     align-items: center;
     justify-content: space-between;
     z-index: 11;
-    
+
 }
 
-.pokemon .detail .types {
+.pokemon .detail .types,
+aside .types {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.pokemon .detail .types .type {
+.pokemon .detail .types .type,
+aside .type {
     color: #fff;
-    
-    padding: .5rem .5rem;
+    padding: .5rem 0.7rem;
     margin: .25rem 0;
-    font-size: .625rem;
+    font-size: 0.8rem;
     border-radius: 1rem;
     filter: brightness(1.1);
     text-align: center;
+    width: fit-content;
 }
 
 .pokemon .detail img {
@@ -144,7 +146,7 @@
     height: 300px;
     top: 10px;
     right: -150px;
-    filter: invert(1); 
+    filter: invert(1);
 }
 
 .pagination {
@@ -164,6 +166,140 @@
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
+}
+
+aside {
+    margin: 0px;  
+    padding-top: 30px;
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    width: 100%;
+    height: 150vh;
+    background-color: rgb(128, 128, 128);
+    z-index: 100;
+    transition: left 0.3s ease-in-out;
+}
+
+aside.ativo {
+    left: 0px;
+}
+
+aside header {
+    position: relative;
+    display: block;
+    padding: 20px;
+}
+
+aside header h1{
+    margin: 10px;
+}
+
+aside header::after {
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    content: "";
+    background-image: url("./1821245.png");
+    opacity: 0.2;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    filter: invert(1);
+    z-index: -1;
+}
+
+aside .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+aside .types {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+
+aside .types .type {
+    margin-right: 10px;
+}
+
+aside .id {
+    position: absolute;
+    right: 30px;
+    top: 70px;
+}
+
+aside .pokemonImg {
+    background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png");
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+    margin: 0px auto;
+}
+
+main.description {
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-top: 400px;
+    transition: margin-top 0.4s ease-in-out;
+}
+
+aside.ativo main.description{
+    margin-top: -70px;
+}
+
+main .buttonsAreas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 30px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .buttonsAreas button{
+    background: none;
+    border: none;
+    padding-bottom: 10px;
+}
+
+main .buttonsAreas button.ativo {
+    border-bottom: 4px solid #6c79db ;
+
+}
+
+main .areasDescription {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+main .areasDescription .area{
+    width: 0vw;
+    height: 100%;
+    overflow: hidden;
+}
+
+main .areasDescription .area.ativo{
+    width: 100vw;
+}
+
+main .areasDescription .area div  {
+    width: 100vw;
+    height: 100%;
+    
+}
+
+main .areasDescription .area .about  {
+    background-color: rgba(0, 0, 0, 0.082);
 }
 
 @media screen and (min-width: 380px) {

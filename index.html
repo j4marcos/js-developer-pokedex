@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif"
+        type="image/x-icon">
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -38,10 +40,50 @@
         </div>
     </section>
 
+    <aside class="ativo">
+        <header>
+            <div class="buttons">
+                <button id="btnBack">voltar</button>
+                <button id="btnLike">curtir</button>
+            </div>
+            <h1>bulbassaur</h1>
+            <div class="types">
+                <div class="type water">water</div>
+                <div class="type fire">fire</div>
+            </div>
+            <div class="id">#12</div>
+            <div class="pokemonImg"></div>
+
+        </header>
+        <main class="description">
+            <div class="buttonsAreas">
+                <button class="btnAbout ativo">about</button>
+                <button class="btnBaseStats">base stats</button>
+                <button class="btnEvolution">evolution</button>
+                <button class="btnMoves">moves</button>
+            </div>
+            <div class="areasDescription">
+                <div class="area ativo">
+                    <div class="about">about about about Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur et sit laudantium magni, ad, ipsa quibusdam tempore animi explicabo ratione, fugit dolore! Voluptate, quidem cum! Laudantium veniam molestiae ut autem et. Hic quasi, maxime totam alias quis minus molestiae! Reiciendis soluta porro provident rem omnis tempore nesciunt autem illo asperiores.</div>
+                </div>
+                <div class="area">
+                    <div class="baseStats">base satus base stats</div>
+                </div>
+                <div class="area">
+                    <div class="evolution">evolution evolution evolution</div>
+                </div>
+                <div class="area">
+                    <div class="moves">moves moves moves</div>
+                </div>
+            </div>
+        </main>
+    </aside>
+
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="assets/js/pokemonDescription.js"></script>
 </body>
 
 </html>
