@@ -1,6 +1,6 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-let pokemonCards = []
+
 
 const maxRecords = 151
 const limit = 10
@@ -8,7 +8,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
+        <li class="pokemon ${pokemon.type}" onclick="openDescription(${pokemon.number})">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -25,18 +25,11 @@ function convertPokemonToLi(pokemon) {
 }
 
 function loadPokemonItens(offset, limit) {
+    let pokeList = []
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        pokeList = pokemons
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
-    }).then(() => {
-
-        pokemonCards = document.querySelectorAll(".pokemon")
-
-        pokemonCards.forEach((card) => {
-            card.addEventListener("click", () => {
-                pokemonDetails.classList.toggle("ativo")
-            })
-        })
     })
 }
 
