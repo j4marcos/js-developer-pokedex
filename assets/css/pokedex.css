@@ -267,14 +267,15 @@ main.description {
 }
 
 aside.ativo main.description{
-    margin-top: -70px;
+    margin-top: -65px;
 }
 
 main .buttonsAreas {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 0px;
     justify-content: space-around;
     align-items: center;
 }
@@ -283,6 +284,7 @@ main .buttonsAreas button{
     background: none;
     border: none;
     padding-bottom: 10px;
+    z-index: 1000000;
 }
 
 main .buttonsAreas button.ativo {
@@ -300,7 +302,8 @@ main .areasDescription {
 main .areasDescription .area{
     width: 0vw;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    transition: width 0.2s ease-in-out;
 }
 
 main .areasDescription .area.ativo{
@@ -313,9 +316,29 @@ main .areasDescription .area div  {
     
 }
 
-main .areasDescription .area .about  {
-    background-color: rgba(0, 0, 0, 0.082);
+main .areasDescription .area div h2 {
+    padding-left: 20px;
+    font-size: 20px;
+    margin: 10px;
 }
+
+main .areasDescription .area div li  {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+main .areasDescription .area div span  {
+    display: inline-block;
+    width: 100px;
+    color: #0000007c;
+}
+
+main .areasDescription .area div li div {
+    display: inline-block;
+    width: 200px;
+    color: #000000d2;
+}
+
 
 @media screen and (min-width: 380px) {
     .pokemons {
