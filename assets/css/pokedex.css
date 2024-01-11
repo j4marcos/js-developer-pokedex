@@ -340,6 +340,21 @@ main .areasDescription .area div li div {
 }
 
 
+aside main .area .evolution .pokeImgs {
+    margin: auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+aside main .area .evolution {
+    display: none;
+    /* background-color: #a79eb8; */
+}
+
+aside main .area.ativo .evolution {
+    display: flex;
+}
+
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;

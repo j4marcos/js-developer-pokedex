@@ -22,16 +22,18 @@ const eggCycleInfo = document.getElementById("eggCycle")
 
 
 
-buttonsAreas.forEach((btn, idx)=> {
-btn.addEventListener("click",(e) => {
-    console.log("click")
-buttonsAreas.forEach(b=> b.classList.remove("ativo"))
-btn.classList.add("ativo")
 
-areas.forEach(a=> a.classList.remove("ativo"))
-areas[idx].classList.add("ativo")
 
-})
+buttonsAreas.forEach((btn, idx) => {
+    btn.addEventListener("click", (e) => {
+        console.log("click")
+        buttonsAreas.forEach(b => b.classList.remove("ativo"))
+        btn.classList.add("ativo")
+
+        areas.forEach(a => a.classList.remove("ativo"))
+        areas[idx].classList.add("ativo")
+
+    })
 })
 
 btnBack.addEventListener("click", () => {
@@ -53,6 +55,37 @@ function openDescription(id) {
     heightInfo.innerHTML = pokeDesc.height
     weightInfo.innerHTML = pokeDesc.weight
     abilitiesInfo.innerHTML = pokeDesc.abilities.map((idx) => idx.ability.name).join(", ")
+
+
+    /////////// provisorio texto abaixo
+    const containerImgs = document.querySelector(".containerImgs")
+    const pokeImgsVariants = document.querySelector(".area .evolution .pokeImgs")
+    // console.log(pokeImgsVariants)
+
+    imgsLinks = []
+    for (let i in pokeDesc.sprites) {
+        if (typeof (pokeDesc.sprites[i]) == "string") imgsLinks.push(pokeDesc.sprites[i])
+        else {
+            for (let j in pokeDesc.sprites[i]) {
+            const pasta = pokeDesc.sprites[i]
+            
+             for(let k in pasta)  {
+                for (let z in pasta[k]) {
+                 
+                    
+                }
+                
+             }
+
+            }
+        }
+    }
+
+
+    console.log(imgsLinks)
+
+    /// texto acima provisorio
+
 
     pokeDesc.stats.forEach((num, idx) => {
         baseStats[idx].innerHTML = num.base_stat
