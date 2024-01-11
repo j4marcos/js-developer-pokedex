@@ -77,25 +77,24 @@ function getImgsGalery(pokeDesc) {
 
     const imgLinks = valuesFromObject(pokeDesc.sprites, 3)
 
-    function valuesFromObject(object, deep) {
-        const values = []
-        const recursion = (object) => {
-            for (let value in object) {
-                if (typeof(object[value]) == "string") {
-                    values.push(object[value]) 
-                } else {
-                    if (typeof(object[value]) == "object" && deep > 0) recursion(object[value], deep - 1)
-                }
-            }
-        }
-
-        recursion(object)
-        return (values)
-    }
-
-    
     const imgsTags = imgLinks.map((img) => `<img class="pokeImgs" src="${img}">`)
     console.log(imgsTags)
     containerImgs.innerHTML += imgsTags.join("")
 
+}
+
+function valuesFromObject(object, deep) {
+    const values = []
+    const recursion = (object) => {
+        for (let value in object) {
+            if (typeof(object[value]) == "string") {
+                values.push(object[value]) 
+            } else {
+                if (typeof(object[value]) == "object" && deep > 0) recursion(object[value], deep - 1)
+            }
+        }
+    }
+
+    recursion(object)
+    return (values)
 }
