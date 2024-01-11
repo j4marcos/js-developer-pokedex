@@ -344,6 +344,10 @@ aside main .area .evolution .pokeImgs {
     margin: auto;
   width: fit-content;
   height: fit-content;
+  max-width: 90vw;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 aside main .area .evolution {
@@ -353,6 +357,7 @@ aside main .area .evolution {
 
 aside main .area.ativo .evolution {
     display: flex;
+    flex-wrap: wrap;
 }
 
 @media screen and (min-width: 380px) {

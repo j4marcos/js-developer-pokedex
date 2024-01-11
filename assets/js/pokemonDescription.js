@@ -57,36 +57,8 @@ function openDescription(id) {
     abilitiesInfo.innerHTML = pokeDesc.abilities.map((idx) => idx.ability.name).join(", ")
 
 
-    /////////// provisorio texto abaixo
-    const containerImgs = document.querySelector(".containerImgs")
-    const pokeImgsVariants = document.querySelector(".area .evolution .pokeImgs")
-    // console.log(pokeImgsVariants)
-
-    imgsLinks = []
-    for (let i in pokeDesc.sprites) {
-        if (typeof (pokeDesc.sprites[i]) == "string") imgsLinks.push(pokeDesc.sprites[i])
-        else {
-            for (let j in pokeDesc.sprites[i]) {
-            const pasta = pokeDesc.sprites[i]
-            
-             for(let k in pasta)  {
-                for (let z in pasta[k]) {
-                 
-                    
-                }
-                
-             }
-
-            }
-        }
-    }
-
-
-    console.log(imgsLinks)
-
-    /// texto acima provisorio
-
-
+    getImgsGalery(pokeDesc)
+    
     pokeDesc.stats.forEach((num, idx) => {
         baseStats[idx].innerHTML = num.base_stat
     })
@@ -96,3 +68,34 @@ function openDescription(id) {
     pokemonDetails.classList.toggle("ativo")
 }
 
+
+
+function getImgsGalery(pokeDesc) {
+
+    const containerImgs = document.querySelector(".containerImgs")
+    containerImgs.innerHTML = ""
+
+    const imgLinks = valuesFromObject(pokeDesc.sprites, 3)
+
+    function valuesFromObject(object, deep) {
+        const values = []
+        const recursion = (object) => {
+            for (let value in object) {
+                if (typeof(object[value]) == "string") {
+                    values.push(object[value]) 
+                } else {
+                    if (typeof(object[value]) == "object" && deep > 0) recursion(object[value], deep - 1)
+                }
+            }
+        }
+
+        recursion(object)
+        return (values)
+    }
+
+    
+    const imgsTags = imgLinks.map((img) => `<img class="pokeImgs" src="${img}">`)
+    console.log(imgsTags)
+    containerImgs.innerHTML += imgsTags.join("")
+
+}
