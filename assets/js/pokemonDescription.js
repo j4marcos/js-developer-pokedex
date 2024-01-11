@@ -6,6 +6,7 @@ const pokeId = document.querySelector("aside header .id")
 const pokeImg = document.querySelector("aside header .pokemonImg")
 const pokeTypes = document.querySelector("aside header .types")
 const btnLike = document.querySelector("aside header #btnLike")
+const descriptionArea = document.querySelector("aside main")
 const buttonsAreas = document.querySelectorAll(".buttonsAreas button")
 const areas = document.querySelectorAll(".areasDescription .area")
 const baseStats = document.querySelectorAll(".baseStats li div")
@@ -63,8 +64,6 @@ function openDescription(id) {
         baseStats[idx].innerHTML = num.base_stat
     })
 
-
-
     pokemonDetails.classList.toggle("ativo")
 }
 
@@ -78,7 +77,7 @@ function getImgsGalery(pokeDesc) {
     const imgLinks = valuesFromObject(pokeDesc.sprites, 3)
 
     const imgsTags = imgLinks.map((img) => `<img class="pokeImgs" src="${img}">`)
-    console.log(imgsTags)
+    
     containerImgs.innerHTML += imgsTags.join("")
 
 }
